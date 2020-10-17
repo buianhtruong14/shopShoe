@@ -95,8 +95,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <span>Danh Mục Sản Phẩm</span>
                     </a>
                     <ul class="sub">
-						<li><a href="typography.html">Thêm Danh Mục</a></li>
-						<li><a href="glyphicon.html">Liệt Kê Danh Mục</a></li>
+						<li><a href="{{URL::to('/add-category-product')}}">Thêm Danh Mục</a></li>
+						<li><a href="{{URL::to('/all-category-product')}}">Liệt Kê Danh Mục</a></li>
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>Thương Hiệu</span>
+                    </a>
+                    <ul class="sub">
+						<li><a href="{{URL::to('/add-brand-product')}}">Thêm Thương Hiệu</a></li>
+						<li><a href="{{URL::to('/all-brand-product')}}">Liệt Kê Thương Hiệu</a></li>
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>Sản Phẩm</span>
+                    </a>
+                    <ul class="sub">
+						<li><a href="{{URL::to('/add-product')}}">Thêm Sản Phẩm</a></li>
+						<li><a href="{{URL::to('/all-product')}}">Liệt Kê Sản Phẩm</a></li>
                     </ul>
                 </li>
                 
@@ -108,7 +128,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--main content start-->
 <section id="main-content">
 	<section class="wrapper">
-		@yield('admin_content ')
+		@yield('admin_content')
 	</section>
 		  <div class="footer">
 			<div class="wthree-copyright">
