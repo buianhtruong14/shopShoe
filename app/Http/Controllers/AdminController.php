@@ -15,7 +15,17 @@ class AdminController extends Controller
         return view('admin.login');
     }
 
+    public function AuthLogin(){
+        $admin_id = Session::get('admin_id');
+        if($admin_id){
+            return redirect('dashboard');
+        } else {
+            return redirect('admin')->send();
+        }
+    }
+
     public function showDashBoard(){
+        $this->AuthLogin();
         return view('admin.dashboard');
     }
 
@@ -36,6 +46,9 @@ class AdminController extends Controller
     }
 
     public function logOut(){
+        $this->AuthLogin();
+        Session::put('admin_name', null);
+        Session::put('admin_id', null);
         return redirect('admin');
     }
 }

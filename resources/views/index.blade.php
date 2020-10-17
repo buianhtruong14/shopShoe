@@ -61,20 +61,26 @@
 					<div class="row">
 						<div class="col-sm-12 text-left menu-1">
 							<ul>
-								<li class="active"><a href="index.html">Home</a></li>
+								<li class="active"><a href="index.html">Trang Chủ</a></li>
 								<li class="has-dropdown">
-									<a href="men.html">Men</a>
+									<a href="men.html">Sản Phẩm</a>
 									<ul class="dropdown">
-										<li><a href="product-detail.html">Product Detail</a></li>
-										<li><a href="cart.html">Shopping Cart</a></li>
-										<li><a href="checkout.html">Checkout</a></li>
-										<li><a href="order-complete.html">Order Complete</a></li>
-										<li><a href="add-to-wishlist.html">Wishlist</a></li>
+										@foreach($category_product as $key => $cate_pro)
+										<li><a href="#">{{ $cate_pro->category_name}}</a></li>
+										@endforeach
 									</ul>
 								</li>
-								<li><a href="women.html">Women</a></li>
-								<li><a href="about.html">About</a></li>
-								<li><a href="contact.html">Contact</a></li>
+								<li class="has-dropdown">
+									<a href="men.html">Thương Hiệu</a>
+									<ul class="dropdown">
+										@foreach($brand_product as $key => $brand_pro)
+										<li><a href="#">{{ $brand_pro->brand_name}}</a></li>
+										@endforeach
+									</ul>
+								</li>
+								<li><a href="women.html">Tin Tức</a></li>
+								<li><a href="about.html">Giỏ Hàng</a></li>
+								<li><a href="contact.html">Liên Hệ</a></li>
 								<li class="cart"><a href="cart.html"><i class="icon-shopping-cart"></i> Cart [0]</a></li>
 							</ul>
 						</div>
@@ -526,4 +532,3 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 	</body>
 </html>
-

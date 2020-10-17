@@ -42,7 +42,12 @@
                 <input type="checkbox"><i></i>
               </label>
             </th>
+            <th>Hình Ảnh</th> 
             <th>Tên Sản Phẩm</th> 
+            <th>Giá </th> 
+            <th>Thương Hiệu</th> 
+            <th>Danh Mục</th>  
+            <th>Kích Cỡ</th>  
             <th>Hiển Thị</th>
             <th style="width:30px;"></th>
           </tr>
@@ -51,7 +56,12 @@
         @foreach($all_product as $key => $cate_pro)
           <tr>
             <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
+            <td><image src= "http://localhost/shopShoe/public/uploads/products/{{$cate_pro->product_image}}" height = '100' width= '100'></td>
             <td>{{$cate_pro->product_name}}</td>
+            <td>{{$cate_pro->product_price}}</td>
+            <td>{{$cate_pro->brand_name}}</td>
+            <td>{{$cate_pro->category_name}}</td>
+            <td>{{$cate_pro->product_size}}</td>
             <td><span class="text-ellipsis">
               <?php 
                   if( $cate_pro->product_status == 0){
