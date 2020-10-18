@@ -92,6 +92,7 @@
                         </div>
                     </div> -->
                     <form action="{{URL::to('/save-cart')}}" method="post">
+                    {{ csrf_field() }}
                     <div class="input-group mb-4">
                         <span class="input-group-btn">
                             <button type="button" class="quantity-left-minus btn" data-type="minus" data-field="">

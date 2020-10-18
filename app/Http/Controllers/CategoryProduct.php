@@ -85,9 +85,9 @@ class CategoryProduct extends Controller
 
     public function showCategoryHome($category_id){
         $cate_id = DB::table('category_product')->where('category_id',$category_id)->get();
-        $category_product = DB::table('category_product')->orderby('category_id','desc')->get();
-        $brand_product = DB::table('brand_product')->orderby('brand_id','desc')->get();
-        $cate_pro = DB::table('product')->where('category_id',$category_id)->get();
+        $category_product = DB::table('category_product')->where('category_status',1)->orderby('category_id','desc')->get();
+        $brand_product = DB::table('brand_product')->where('brand_status',1)->orderby('brand_id','desc')->get();
+        $cate_pro = DB::table('product')->where('product_status',1)->where('category_id',$category_id)->get();
         return view('page.show_category')->with('category_product', $category_product)
                             ->with('cate_id', $cate_id)
                             ->with('brand_product', $brand_product)

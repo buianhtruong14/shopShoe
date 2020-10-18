@@ -83,9 +83,9 @@ class BrandProduct extends Controller
 
     public function showBrandHome($brand_id){
         $brand = DB::table('brand_product')->where('brand_id',$brand_id)->get();
-        $category_product = DB::table('category_product')->orderby('category_id','desc')->get();
-        $brand_product = DB::table('brand_product')->orderby('brand_id','desc')->get();
-        $brand_pro = DB::table('product')->where('brand_id',$brand_id)->get();
+        $category_product = DB::table('category_product')->where('category_status',1)->orderby('category_id','desc')->get();
+        $brand_product = DB::table('brand_product')->where('brand_status',1)->orderby('brand_id','desc')->get();
+        $brand_pro = DB::table('product')->where('product_status',1)->where('brand_id',$brand_id)->get();
         return view('page.show_brand')->with('category_product', $category_product)
                             ->with('brand_id', $brand)
                             ->with('brand_product', $brand_product)

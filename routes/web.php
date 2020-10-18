@@ -7,6 +7,7 @@ use App\Http\Controllers\CategoryProduct;
 use App\Http\Controllers\BrandProduct;
 use App\Http\Controllers\Product;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,7 @@ use App\Http\Controllers\CartController;
 
 Route::get('/', [HomeController::class, 'index'] );
 Route::get('/trang-chu', [HomeController::class, 'index'] );
+Route::post('/search', [HomeController::class, 'search'] );
 
 //FF   Danh mục sản phẩm trang chủ
 Route::get('/danh-muc-san-pham/{category_id}', [CategoryProduct::class, 'showCategoryHome'] );
@@ -76,4 +78,20 @@ Route::post('/update-product/{product_id}',[Product::class,'updateProduct']);
 
 
 // Cart
-Route::post('/save-product',[CartController::class,'saveCart']);
+Route::post('/save-cart',[CartController::class,'saveCart']);
+Route::post('/update-cart-quantity',[CartController::class,'updateCartQuantity']);
+Route::get('/show-cart',[CartController::class,'showcart']);
+Route::get('/delete-to-cart/{rowId}',[CartController::class,'deleteToCart']);
+
+//Checkout 
+Route::get('/login-checkout',[CheckoutController::class,'loginCheckout']);
+Route::get('/logout-checkout',[CheckoutController::class,'logoutCheckout']);
+Route::get('/checkout',[CheckoutController::class,'checkout']);
+
+// User
+Route::get('/login',[CheckoutController::class,'loginCheckout']);
+Route::get('/register',[CheckoutController::class,'register']);
+Route::post('/add-customer',[CheckoutController::class,'addCustomer']);
+Route::get('/payment',[CheckoutController::class,'payment']);
+Route::post('/save-checkout-customer',[CheckoutController::class,'saveCheckoutCustomer']);
+Route::post('/login-customer',[CheckoutController::class,'loginCustomer']);

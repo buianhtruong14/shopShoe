@@ -51,9 +51,9 @@
                             <div id="colorlib-logo"><a href="index.html">Footwear</a></div>
                         </div>
                         <div class="col-sm-5 col-md-3">
-                            <form action="#" class="search-wrap">
+                            <form action="{{URL::to('/search')}}" method="post" class="search-wrap">
                                 <div class="form-group">
-                                    <input type="search" class="form-control search" placeholder="Search">
+                                    <input type="search" name= "key_words" class="form-control search" placeholder="Search">
                                     <button class="btn btn-primary submit-search text-center" type="submit"><i class="icon-search"></i></button>
                                 </div>
                             </form>
@@ -85,7 +85,21 @@
                                 <li><a href="women.html">Tin Tức</a></li>
                                 <li><a href="about.html">Giỏ Hàng</a></li>
                                 <li><a href="contact.html">Liên Hệ</a></li>
-                                <li class="cart"><a href="cart.html"><i class="icon-shopping-cart"></i> Cart [0]</a></li>
+                                <li class="cart"><a href="{{URL::to('/show-cart')}}"><i class="icon-shopping-cart"></i> Cart [0]</a></li>
+                                <?php 
+                                    $customer_id = Session::get('customer_id');
+                                    if($customer_id != null){
+                                ?>
+                                    <li class="cart"><a href="{{URL::to('/logout-checkout')}}"> Đăng Xuất</a></li>
+                                <?php
+                                    } else {
+                                ?>
+                                <li class="cart"><a href="{{URL::to('/login-checkout')}}"> Đăng Nhập</a></li>
+                                <?php
+                                    }
+                                ?>
+                                
+                                
                             </ul>
                         </div>
                     </div>
