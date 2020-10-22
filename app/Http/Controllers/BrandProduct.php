@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use App\Models\Brand;
 use Session;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Redirect;
@@ -27,18 +28,27 @@ class BrandProduct extends Controller
 
     public function allBrandProduct(){
         $this->AuthLogin();
-        $all_brand_product = DB::table('brand_product')->get();
+        // $all_brand_product = DB::table('brand_product')->get();
+        // $all_brand_product = Brand::all();
+        $all_brand_product = Brand::orderBy('brand_id','DESC')->get();
         return view('admin.allBrandProduct')->with('all_brand_product', $all_brand_product);
     }
 
     public function saveBrandProduct(Request $request){
         $this->AuthLogin();
-        $data = array();
-        $data['brand_name'] = $request->brand_product_name;
-        $data['brand_desc'] = $request->brand_product_desc;
-        $data['brand_status'] = $request->brand_product_status;
+        // $data = array();
+        // $data['brand_name'] = $request->brand_product_name;
+        // $data['brand_desc'] = $request->brand_product_desc;
+        // $data['brand_status'] = $request->brand_product_status;
 
-        DB::table('brand_product')->insert($data);
+        // DB::table('brand_product')->insert($data);
+        $data = $request->all();
+        $brand = new Brand();
+        $brand->brand_name = $data['brand_product_name'];
+        $brand->brand_desc = $data['brand_product_desc'];
+        $brand->brand_status = $data['brand_product_status'];
+        $brand->save();
+
         Session::put('message','Thêm Thương Hiệu thành công vào danh mục');
 
         return redirect('add-brand-product');
@@ -60,16 +70,29 @@ class BrandProduct extends Controller
 
     public function editBrandProduct($brand_product_id){
         $this->AuthLogin();
-        $edit_brand_product = DB::table('brand_product')->where('brand_id', $brand_product_id)->get();
+        // $edit_brand_product = DB::table('brand_product')->where('brand_id', $brand_product_id)->get();
+        // $edit_brand_product = Brand::find($brand_product_id);
+        $edit_brand_product = Brand::where('brand_id',$brand_product_id)->get();
         return view('admin.editbrandProduct')->with('edit_brand_product', $edit_brand_product);
     }
 
     public function updateBrandProduct(Request $request,$brand_product_id){
         $this->AuthLogin();
+
+        // $data = $request->all();
+        // $brand = Brand::find($brand_product_id);
+        // $brand->brand_name = $data['brand_product_name'];
+        // $brand->brand_desc = $data['brand_product_desc'];
+        // $brand->save();
+
+
+
         $data = array();
         $data['brand_name'] = $request->brand_product_name;
         $data['brand_desc'] = $request->brand_product_desc;
         DB::table('brand_product')->where('brand_id', $brand_product_id)->update($data);
+
+
         Session::put('message','Cập nhật Thương Hiệu thành công');
         return redirect('all-brand-product');
     }

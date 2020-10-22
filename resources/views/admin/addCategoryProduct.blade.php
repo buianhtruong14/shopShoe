@@ -27,6 +27,11 @@
                             <textarea style="resize: none" rows="5" class="form-control" name="category_product_desc" id="exampleInputPassword1" placeholder="Mô tả sản phẩm"></textarea>
 
                         </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Từ khóa Danh Mục</label>
+                            <textarea style="resize: none" rows="5" class="form-control" name="meta_keywords" id="exampleInputPassword1" placeholder="Mô tả sản phẩm"></textarea>
+
+                        </div>
                         <!-- <div class="form-group">
                                     <label for="exampleInputFile">File input</label>
                                     <input type="file" id="exampleInputFile">

@@ -1,6 +1,8 @@
 @extends('layout')
 @section('page_content')
+<div class="fb-share-button" data-href="http://localhost/shopShoe/public" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%2FshopShoe%2Fpublic&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Chia sẻ</a></div>
 		<div class="colorlib-product">
+		<div class="fb-like" data-href="http://localhost/shopShoe/public" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="true"></div>
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-8 offset-sm-2 text-center colorlib-heading">
@@ -104,5 +106,6 @@
 					</div>
 				</div>
 			</div>
-        </div>
+		</div>
+		<div class="fb-comments" data-href="http://localhost/shopShoe/public" data-numposts="20" data-width=""></div>
 @endsection

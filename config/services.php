@@ -29,5 +29,15 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
+    'facebook' => [
+        'client_id' => '1096811757411135',
+        'client_secret' => 'f6cef8dd3cae0035149675fc767948eb',
+        'redirect' => 'http://localhost/shopShoe/public/admin/callback',
+    ],
+    'google' => [
+        'client_id' => '1096811757411135',
+        'client_secret' => 'kRixkQzexJngSFmxeby7rGMu',
+        'redirect' => 'localhost/shopShoe/public/google/callback',
+    ],
 
 ];

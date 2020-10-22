@@ -2,9 +2,22 @@
 <html>
 
 <head>
-    <title>Footwear - Free Bootstrap 4 Template by Colorlib</title>
+    
+    <title>{{$meta_title}}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- seo -->
+    <meta name="description" content="{{$meta_desc}}">
+    <meta name="robots" content="index, follow">
+    <meta name="keywords" content="{{$meta_keywords}}">
+    <link rel="canonical" href="{{$url_canonical}}">
+
+    <meta property="og:site_name" content="http://localhost/shopShoe/public"/>
+    <meta property="og:description" content="{{$meta_desc}}"/>
+    <meta property="og:title" content="{{$meta_title}}"/>
+    <meta property="og:url" content="{{$url_canonical}}"/>
+    <meta property="og:type" content="website"/>
 
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Rokkitt:100,300,400,700" rel="stylesheet">
@@ -51,7 +64,9 @@
                             <div id="colorlib-logo"><a href="index.html">Footwear</a></div>
                         </div>
                         <div class="col-sm-5 col-md-3">
-                            <form action="{{URL::to('/search')}}" method="post" class="search-wrap">
+                            <form action="{{URL::to('/tim-kiem')}}" method="post" class="search-wrap">
+                            {{csrf_field()}} 
+                            
                                 <div class="form-group">
                                     <input type="search" name= "key_words" class="form-control search" placeholder="Search">
                                     <button class="btn btn-primary submit-search text-center" type="submit"><i class="icon-search"></i></button>
@@ -239,6 +254,8 @@
     <script src="{{ asset('footwear/js/jquery.stellar.min.js') }}"></script>
     <!-- Main -->
     <script src="{{ asset('footwear/js/main.js') }}"></script>
+    <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v8.0" nonce="lDDkq05P"></script>
 
 </body>
 

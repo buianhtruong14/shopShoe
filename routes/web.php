@@ -24,7 +24,7 @@ use App\Http\Controllers\CheckoutController;
 
 Route::get('/', [HomeController::class, 'index'] );
 Route::get('/trang-chu', [HomeController::class, 'index'] );
-Route::post('/search', [HomeController::class, 'search'] );
+Route::post('/tim-kiem', [HomeController::class, 'search'] );
 
 //FF   Danh mục sản phẩm trang chủ
 Route::get('/danh-muc-san-pham/{category_id}', [CategoryProduct::class, 'showCategoryHome'] );
@@ -92,6 +92,34 @@ Route::get('/checkout',[CheckoutController::class,'checkout']);
 Route::get('/login',[CheckoutController::class,'loginCheckout']);
 Route::get('/register',[CheckoutController::class,'register']);
 Route::post('/add-customer',[CheckoutController::class,'addCustomer']);
+Route::post('/order-place',[CheckoutController::class,'orderPlace']);
 Route::get('/payment',[CheckoutController::class,'payment']);
 Route::post('/save-checkout-customer',[CheckoutController::class,'saveCheckoutCustomer']);
 Route::post('/login-customer',[CheckoutController::class,'loginCustomer']);
+
+//order
+Route::get('/manage-order',[CheckoutController::class,'manageOrder']);
+Route::get('/view-order/{orderId}',[CheckoutController::class,'viewOrder']);
+
+//Send Mail
+Route::get('/send-mail',[HomeController::class,'sendMail']);
+
+Route::get('/login-google',[AdminController::class,'loginGoogle']);
+Route::get('/google/callback',[AdminController::class,'callbackGoogle']);
+
+//Login Facebook
+Route::get('/login-facebook',[AdminController::class,'loginFacebook']);
+Route::get('/facebook/callback',[AdminController::class,'callBackFacebook']);
+Route::get('/lala',[AdminController::class,'lala']);
+
+Route::get('send-mail1', function () {
+   
+    $details = [
+        'title' => 'Mail from ItSolutionStuff.com',
+        'body' => 'This is for testing email using smtp'
+    ];
+   
+    \Mail::to('yyzhang1102@gmail.com')->send(new \App\Mail\MailNotify($details));
+   
+    dd("Email is Sent.");
+});
